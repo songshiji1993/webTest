@@ -6,9 +6,9 @@
 
 
 <form action="Test" method="post">
- ytryrtrty<input type="text" name = "name">  <br>
+ account<input type="text" name = "name">  <br>
  密码<input type="text" name = "password">  <br>
-<input type="submit" value="提交">
+<input type="submit" value="提交1">
 
 
 </form>

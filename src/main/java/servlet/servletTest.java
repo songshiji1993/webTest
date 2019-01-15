@@ -1,3 +1,5 @@
+package servlet;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -43,7 +45,7 @@ public class servletTest extends HttpServlet {
         request.setCharacterEncoding("utf-8");
         response.setContentType("text/html;charset=UTF-8");
 
-        String name = request.getParameter("name");
+
         String url = request.getRequestURI();
         String action = url.substring(url.lastIndexOf("/"),url.length());
         String password = request.getParameter("password");
@@ -51,19 +53,14 @@ public class servletTest extends HttpServlet {
 
         System.out.println("地址="+url);
         System.out.println("action="+action);
-        User user = new User(name,password);
-//        System.out.println(user.toString());
-        System.out.println("-----------------------*---------------------------------");
-        request.setAttribute("user",user);
-        request.setAttribute("s","yyyy");
-        request.getRequestDispatcher("eee.jsp").forward(request,response);
+
 
         if(action.equals("/add")){
             System.out.println("--------------to----------------add----------");
             String p = request.getParameter("price");
             Double price = Double.parseDouble(p);
             String bookName = request.getParameter("bookName");
-            request.getRequestDispatcher("/jsp/add.jsp").forward(request,response);
+            request.getRequestDispatcher("jsp/admin.jsp").forward(request,response);
 
 
 
@@ -74,6 +71,14 @@ public class servletTest extends HttpServlet {
 
         } if(action.equals("/list")){
 
+        }if(action.equals("/Test")){
+            String name = request.getParameter("name");
+            User user = new User(name,password);
+//        System.out.println(user.toString());
+            System.out.println("-----------------------*---------------------------------");
+            request.setAttribute("user",user);
+            request.setAttribute("s","yyyy");
+            request.getRequestDispatcher("eee.jsp").forward(request,response);
         }
 
 
