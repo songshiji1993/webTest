@@ -13,17 +13,11 @@
 <body>
 
 <form action="../add" method="post">
- 书名<input type="text" name="name"><br>
+ 书名<input type="text" name="bookName"><br>
  价格<input type="text" name="price"><br>
     <input type="submit" value="添加">
 </form>
-<form action=".//Test" method="post">
-    account<input type="text" name = "name">  <br>
-    密码<input type="text" name = "password">  <br>
-    <input type="submit" value="提交1">
 
-
-</form>
 
 
 

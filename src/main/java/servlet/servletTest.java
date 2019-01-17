@@ -5,7 +5,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+
+import com.Book;
 import com.User;
+import dao.BookDao;
+import jdbc.Util;
 
 public class servletTest extends HttpServlet {
 
@@ -60,6 +64,10 @@ public class servletTest extends HttpServlet {
             String p = request.getParameter("price");
             Double price = Double.parseDouble(p);
             String bookName = request.getParameter("bookName");
+            Book book = new Book(bookName,price);
+            System.out.println(book.toString());
+            BookDao bookDao = new BookDao();
+            bookDao.addBook(book);
             request.getRequestDispatcher("jsp/admin.jsp").forward(request,response);
 
 
