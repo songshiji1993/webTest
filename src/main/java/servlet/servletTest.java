@@ -48,7 +48,7 @@ public class servletTest extends HttpServlet {
 //        super.service(req, resp);
         request.setCharacterEncoding("utf-8");
         response.setContentType("text/html;charset=UTF-8");
-
+        BookDao bookDao = new BookDao();
 
         String url = request.getRequestURI();
         String action = url.substring(url.lastIndexOf("/"),url.length());
@@ -66,14 +66,19 @@ public class servletTest extends HttpServlet {
             String bookName = request.getParameter("bookName");
             Book book = new Book(bookName,price);
             System.out.println(book.toString());
-            BookDao bookDao = new BookDao();
+
             bookDao.addBook(book);
+
             request.getRequestDispatcher("jsp/admin.jsp").forward(request,response);
 
 
 
-
         } if(action.equals("/delete")){
+            String bookName = request.getParameter("bookName");
+            bookDao.deleteBook(bookName);
+
+            request.getRequestDispatcher("jsp/admin.jsp").forward(request,response);
+
 
         } if(action.equals("/modify")){
 

@@ -11,6 +11,10 @@
     <title>Title</title>
 </head>
 <body>
+<form action="../delete" method="post">
+    要删除的书名<input type="text" name="bookName"><br>
 
+    <input type="submit" value="删除">
+</form>
 </body>
 </html>

@@ -5,7 +5,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class Util {
-
+    //test为masql数据库名字
     private  static  String url  = "jdbc:mysql://127.0.0.1:3306/test?useUnicode=true&amp;characterEncoding=utf-8";
     private  static  String accout  = "root";
     private  static  String password  = "root";
@@ -13,7 +13,7 @@ public class Util {
     public static Connection getConnection() {
         Connection con = null;
         try {
-            Class.forName("com.mysql.jdbc.Driver");
+            Class.forName("com.mysql.jdbc.Driver");//加载驱动
             con = DriverManager.getConnection(
                     url, accout, password
             );

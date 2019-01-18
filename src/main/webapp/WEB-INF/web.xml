@@ -25,6 +25,14 @@
     <servlet-mapping>
         <servlet-name>add1</servlet-name>
         <url-pattern>/add</url-pattern>
+    </servlet-mapping><servlet>
+
+    <servlet-name>delete</servlet-name>
+    <servlet-class>servlet.servletTest</servlet-class>
+</servlet>
+    <servlet-mapping>
+        <servlet-name>delete</servlet-name>
+        <url-pattern>/delete</url-pattern>
     </servlet-mapping>
 
 </web-app>
