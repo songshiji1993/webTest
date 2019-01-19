@@ -13,8 +13,8 @@
 <body>
 
 <form action="../add" method="post">
- 书名<input type="text" name="bookName"><br>
- 价格<input type="text" name="price"><br>
+    书名<input type="text" name="bookName"><br>
+    价格<input type="text" name="price"><br>
     <input type="submit" value="添加">
 </form>
 

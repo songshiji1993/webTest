@@ -13,8 +13,11 @@
 <body>
 <a href="add.jsp">添加</a>
 <a href="delete.jsp">删除</a>
-<a href="/modify.jsp">修改</a>
-<a href="/list.jsp">查询</a>
+<a href="modify.jsp">修改</a>
+
+<form action="../list" method="post">
+<input type="submit" value="查询">
+</form>
 
 
 

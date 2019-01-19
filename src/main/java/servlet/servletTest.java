@@ -5,6 +5,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.Book;
 import com.User;
@@ -12,36 +14,6 @@ import dao.BookDao;
 import jdbc.Util;
 
 public class servletTest extends HttpServlet {
-
-//    @Override
-//    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//
-//        request.setCharacterEncoding("utf-8");
-//        response.setContentType("text/html;charset=UTF-8");
-//
-//        String name = request.getParameter("name");
-//        String password = request.getParameter("password");
-//
-//        User user = new User(name,password);
-//        System.out.println(user.toString());
-//        System.out.println("-----------------------*---------------------------------");
-//
-//    }
-//
-//    @Override
-//    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//        super.doPost(request, response);
-//        request.setCharacterEncoding("utf-8");
-//        response.setContentType("text/html;charset=UTF-8");
-//
-//        String name = request.getParameter("name");
-//        String password = request.getParameter("password");
-//
-//        User user = new User(name,password);
-//        System.out.println(user.toString());
-//        System.out.println("-----------------------*---------------------------------");
-////        response.getR
-//    }
 
     @Override
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -76,13 +48,25 @@ public class servletTest extends HttpServlet {
         } if(action.equals("/delete")){
             String bookName = request.getParameter("bookName");
             bookDao.deleteBook(bookName);
+            request.getRequestDispatcher("jsp/admin.jsp").forward(request,response);
+
+        } if(action.equals("/update")){
+
+            String bookName = request.getParameter("bookName");
+            Double price = Double.parseDouble(request.getParameter("price"));
+            Book book = new Book(bookName,price);
+            bookDao.updateBook(book);
 
             request.getRequestDispatcher("jsp/admin.jsp").forward(request,response);
 
-
-        } if(action.equals("/modify")){
-
         } if(action.equals("/list")){
+
+            List<Book> books = new ArrayList<>();
+            books = bookDao.queryBook();
+            request.setAttribute("books",books);
+            request.getRequestDispatcher("jsp/list.jsp").forward(request,response);
+
+
 
         }if(action.equals("/Test")){
             String name = request.getParameter("name");

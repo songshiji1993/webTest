@@ -12,5 +12,10 @@
 </head>
 <body>
 
+<form action="../update" method="post">
+    要修改的书<input type="text" name="bookName"><br>
+    新的价格<input type="text" name="price"><br>
+    <input type="submit" value="修改">
+</form>
 </body>
 </html>

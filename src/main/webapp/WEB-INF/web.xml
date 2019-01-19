@@ -34,5 +34,21 @@
         <servlet-name>delete</servlet-name>
         <url-pattern>/delete</url-pattern>
     </servlet-mapping>
+    <servlet>
+    <servlet-name>list</servlet-name>
+    <servlet-class>servlet.servletTest</servlet-class>
+</servlet>
+    <servlet-mapping>
+        <servlet-name>list</servlet-name>
+        <url-pattern>/list</url-pattern>
+    </servlet-mapping>
+    <servlet>
+    <servlet-name>update</servlet-name>
+    <servlet-class>servlet.servletTest</servlet-class>
+</servlet>
+    <servlet-mapping>
+        <servlet-name>update</servlet-name>
+        <url-pattern>/update</url-pattern>
+    </servlet-mapping>
 
 </web-app>
